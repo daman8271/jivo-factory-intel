@@ -10,7 +10,10 @@ last and every previous day stays in git history (the time machine).
 05:30  factory_refresh.sh   rotating-auth → full capture → render FRESH source vault
         │                     (/root/jivo-factory-intel/vault, deterministic full REPLACE)
         ▼
-06:00  run_daily.sh         (existing data-bank cron)
+12:00  ecom deadline sweep  lands the noon competitor-price source, then triggers competitor/data-bank
+        │                    chain when the upstream sources are ready
+        ▼
+~12:20 run_daily.sh         event-driven data-bank fusion, not a fixed cron
         ├ daily_rebuild.sh   migrate jivo+ecom + factory_pillar(fresh factory) → FAIL-CLOSED verify → commit
         ├ push_both.sh       auto-push the verified commit to github.com/daman8271/jivo-data-bank
         └ notify.sh          Telegram heartbeat / loud failure alert
@@ -19,7 +22,8 @@ last and every previous day stays in git history (the time machine).
 Cron lines (`crontab -l`):
 ```
 30 5 * * * /root/jivo-factory-intel/bin/factory_refresh.sh >> /root/jivo-factory-intel/daily.log 2>&1
-0  6 * * * /root/jivo-data-bank/bin/run_daily.sh           >> /var/log/jivo-data-bank/cron.log 2>&1
+# data-bank daily fusion is event-driven via ecom-intel deadline_sweep.sh -> competitor -> run_daily.sh
+# jivo-data-bank keeps only the weekly semantic cron unless JDB_DAILY_CRON is explicitly set.
 ```
 
 ## Auth — self-sustaining, no password stored
@@ -49,7 +53,7 @@ It stores access+refresh to `~/.config/jivo-factory/` (0600). The password is ne
 - `render.py` — deterministic full-REPLACE render of `vault/` (one note per record, FK links, SAP bridge).
 - `factory_refresh.sh` — the 05:30 entrypoint (auth → capture → render).
 - `factory_daily.sh` — self-contained alternative that also runs the rebuild (not used by cron;
-  the 06:00 `run_daily.sh` does the fuse+commit+push).
+  the data-bank event hook does the fuse+commit+push after the noon upstream chain).
 
 ## Verify / troubleshoot
 - Last run: `tail /root/jivo-factory-intel/refresh.log` and `/var/log/jivo-data-bank/cron.log`.

@@ -29,12 +29,12 @@ The vault is **flat**: one folder per entity type, named by the **raw slug** = t
 vault/
 ├── _HOME.md                              the MOC entry point (type: moc)
 ├── _bridge.json                          FG#### → [<slug>/<noteid>, …]  (the machine-readable bridge)
-├── barcode__boxes/                       27,206 notes  (the largest entity; prefix `box`)
-├── barcode__scan__history/               15,031 notes  (2nd largest)
-├── gate-core__arrivals/                  117 notes     (prefix `arr`)
-├── vehicle-management__vehicles/         340 notes     (prefix `veh`)
+├── barcode__boxes/                       8,500 notes   (the largest entity; prefix `box`)
+├── barcode__scan__history/               1,100 notes   (scan events)
+├── gate-core__arrivals/                  139 notes     (prefix `arr`)
+├── vehicle-management__vehicles/         346 notes     (prefix `veh`)
 ├── barcode__items__oitm/                 420 notes     (the SAP item master; prefix `oitm`)
-├── person-gatein__visitors/              149 notes     (prefix `vis`)
+├── person-gatein__visitors/              154 notes     (prefix `vis`)
 │   … 40 more domain__entity folders …
 ```
 
@@ -97,15 +97,15 @@ tags:
 ## `_HOME`, MOC hubs & chunking
 
 - **`_HOME.md`** — a `type: moc` note titled *"JIVO Factory (Jivo Mart) — Home"*. It states the
-  headline stats (`Notes: 49371 · Entity types: 46 · SAP-bridged item codes: 421`), lists the **entity
+  headline stats (`Notes: 16938 · Entity types: 46 · SAP-bridged item codes: 421`), lists the **entity
   hubs grouped by domain** (each `[[_moc-<slug>|Title]] (count)`), then an **"Empty for Jivo Mart"**
   section listing all **59** empty endpoints, then a **"SAP product bridge"** pointer to `_bridge.json`.
 - **One `_moc-<slug>.md` per entity type**, living inside that entity's folder (`type: moc`, `Up:
   [[_HOME]]`). It lists every note as `- [[noteid]] — title`.
 - **Chunked at 1000 links.** Entities with > 1000 notes are paged: `_moc-<slug>-001.md`,
-  `-002.md`, … — e.g. `barcode__boxes` has **28** pages (`_moc-barcode__boxes-001..028`),
-  `barcode__scan__history` **16** pages, `gate-core__sales-dispatch__documents` 2 pages. **Total
-  `_moc-*.md` files = 89.**
+  `-002.md`, … — e.g. `barcode__boxes` has **9** pages (`_moc-barcode__boxes-001..009`),
+  `barcode__scan__history` **2** pages, `gate-core__sales-dispatch__documents` 2 pages. **Total
+  `_moc-*.md` files = 56.**
 
 ---
 
@@ -117,7 +117,7 @@ tags:
 { "FG0000004": ["barcode__boxes/box-112501", …], "FG0000030": [ … ], … }
 ```
 
-- **421 distinct FG codes**, **29,392 total references**. Each key is an `FG####` SAP item code; the
+- **421 distinct FG codes**, **10,695 total references**. Each key is an `FG####` SAP item code; the
   value lists every `<slug>/<noteid>` whose record carries that code.
 - It is **FG-only by design** — only codes matching `^FG\d+$` (finished goods) are recorded; PM
   (packaging) / RM (raw-material) codes are not (see [`DATA-MODEL.md`](DATA-MODEL.md) § SAP bridge).

@@ -50,9 +50,9 @@ jivo-factory-pp-cli   (19 resources · 152 GET endpoints, read-only)
  refresh_token.py → capture.py → capture_gaps.py → render.py (rmtree vault/ → rebuild)
       │   (rotate JWT)   (raw/*.json)  (cap-bust+gaps)   FULL REPLACE
       ▼
- vault/  (49,461 .md + _bridge.json) ──git commit (history = time machine)──► PUBLIC repo
+ vault/  (16,995 .md + _bridge.json) ──git commit (history = time machine)──► PUBLIC repo
       │
-      ▼   ~13:30 IST  (data-bank fusion, separate repo)
+      ▼   event-driven after noon upstream chain (~12:20 IST when sources are ready)
  factory_pillar.py → copy vault/ verbatim into jivo-data-bank/factory/ + append "## Factory lens"
                      to each product node whose FG#### appears (the SAP bridge)
 ```
@@ -63,13 +63,13 @@ jivo-factory-pp-cli   (19 resources · 152 GET endpoints, read-only)
 
 | Metric | Value |
 |---|---|
-| Record notes (one per physical record) | **49,371** |
+| Record notes (one per physical record) | **16,938** |
 | Entity types (flat `domain__entity` folders) | **46** |
-| `.md` files on disk | **49,461** (49,371 notes + **89** `_moc-*.md` + `_HOME.md`) |
-| SAP `FG####` bridge codes | **421** (29,392 references in `_bridge.json`) |
+| `.md` files on disk | **16,995** (16,938 notes + **56** `_moc-*.md` + `_HOME.md`) |
+| SAP `FG####` bridge codes | **421** (10,695 references in `_bridge.json`) |
 | Empty modules (built but no data) | **59** |
-| Rendered vault | **204 MB** |
-| Lossless raw capture | **54 MB** — 152 endpoint files + `_manifest.json` |
+| Rendered vault | **74 MB** |
+| Lossless raw capture | **35 MB** — 152 endpoint files + `_manifest.json` |
 | Company scope | **`JIVO_MART`** (company id 2) — the retail / dispatch arm only |
 
 > **A snapshot mirror, not a growing archive.** `render.py` does `shutil.rmtree(vault)` then rebuilds
@@ -102,8 +102,8 @@ jivo-factory-intel/
 │   ├── factory_daily.sh    self-contained alt (refresh → data-bank rebuild → push) — NOT used by cron
 │   └── reseed.sh           one-time password re-seed (owner runs with `!`; password never stored)
 │
-├── raw/                 lossless raw capture — one <slug>.json per endpoint + _manifest.json   [54 MB]
-├── vault/               the rendered Obsidian vault — 46 entity folders + _HOME.md + _bridge.json [204 MB]
+├── raw/                 lossless raw capture — one <slug>.json per endpoint + _manifest.json   [35 MB]
+├── vault/               the rendered Obsidian vault — 46 entity folders + _HOME.md + _bridge.json [74 MB]
 │   └── barcode__boxes/  gate-core__arrivals/  vehicle-management__vehicles/  …  + _moc-<slug>.md hubs
 ├── snapshots/           a frozen earlier raw capture (2026-06-30 00:27) — NOT refreshed by cron  [21 MB]
 ├── app-model/           the 13-section whole-app study (README · 00-OVERVIEW · _route-map · sections/01–13)
@@ -173,15 +173,11 @@ fourth fuses them per product, keyed by the SAP code **`FG####`**:
 
 - **05:30 IST** — `bin/factory_refresh.sh` refreshes this repo (rotate token → capture → cap-bust →
   full-replace render). Self-sustaining auth, no password at rest.
-- **~13:30 IST** — the data-bank's own cron fuses jivo + ecom + **factory** (runs after the ecom
-  pillar lands ~12:00).¹
-- **Every 3 hours** — `/root/bin/push_all_jivo.sh` (cron `45 */3`, `git add -A`) pushes this repo's
-  completed work. Because this is a public proprietary-data repo, the push classifier blocks Claude
-  from pushing it — **the owner pushes** (or the scheduled `push_all_jivo.sh` does).
+- **Event-driven after the noon upstream chain** — the data-bank fusion runs after the 12:00 ecom
+  deadline sweep and competitor refresh complete; typical landing is around **12:20 IST**, not a fixed
+  06:00 or 13:30 cron.
+- **Every 15 minutes** — `/root/bin/push_all_repos.sh` runs from cron with `COMMIT_VAULTS=1` and syncs
+  completed crawler/scraper output for the owner's Jivo repos.
 
 Operational detail (the cron chain, self-sustaining auth, the one-time re-seed) lives in
 **[`REFRESH-RUNBOOK.md`](REFRESH-RUNBOOK.md)**.
-
-> ¹ The in-repo `REFRESH-RUNBOOK.md` still documents the fuse step at **06:00**; it is **stale** — the
-> data-bank fusion was moved to **~13:30 IST** so it runs after the ecom pillar refreshes (it used to
-> fuse before ecom landed, leaving the ecom pillar a day stale).

@@ -4,7 +4,7 @@ The semantic foundation: Jivo Mart's business, the 46-entity catalog, the foreig
 item-code bridge, and the honest gaps. Read **[`VAULT-GUIDE.md`](VAULT-GUIDE.md)** for how to find
 these things in the vault, and **[`ARCHITECTURE.md`](ARCHITECTURE.md)** for how they get there.
 
-> Figures are **as of the 2026-06-30 refresh** (`render-proof.json`). Each refresh is a full-replace
+> Figures are **as of the 2026-07-01 refresh** (`render-proof.json`). Each refresh is a full-replace
 > mirror, so use git history to move through time and date-stamp anything you report.
 
 ---
@@ -44,38 +44,39 @@ The full per-page app study (13 sections, what every page does + the data behind
 ## 2. The entity catalog
 
 The **46 rendered entity types**, grouped by domain (first path segment), with real per-entity note
-counts from `render-proof.json`. **49,371 record notes total.** `barcode__boxes` (27,206) +
-`barcode__scan__history` (15,031) alone are **~86%** of all notes.
+counts from `render-proof.json`. **16,938 record notes total.** `barcode__boxes` (8,500) +
+`gate-core__sales-dispatch__documents` (1,236) + `barcode__scan__history` (1,100) are the largest
+entities.
 
 | Domain | Entity (slug) | Notes | Notes |
 |---|---|---:|---|
-| **accounts** (1) | `accounts__users` | 62 | app users |
-| **barcode** (12) | `barcode__boxes` | **27,206** | the largest entity; carton master (prefix `box`) |
-| | `barcode__scan__history` | **15,031** | 2nd largest; every scan event |
+| **accounts** (1) | `accounts__users` | 63 | app users |
+| **barcode** (12) | `barcode__boxes` | **8,500** | the largest entity; carton master (prefix `box`) |
+| | `barcode__scan__history` | **1,100** | scan events |
 | | `barcode__items__oitm` | 420 | **the SAP item master** (prefix `oitm`) |
-| | `barcode__pallets` | 583 | pallets (prefix `pal`) |
+| | `barcode__pallets` | 592 | pallets (prefix `pal`) |
 | | `barcode__dispatch__reports` | 57 | dispatch reports |
 | | `barcode__dispatch__reports__boxes` | 1,000 | hard-capped at 1000 |
-| | `barcode__dispatch__reports__pallets` | 583 | |
+| | `barcode__dispatch__reports__pallets` | 592 | |
 | | `barcode__dispatch__reports__rejected-scans` | 962 | |
 | | `barcode__dispatch__sessions__active` | 55 | |
 | | `barcode__dispatch__sessions__completed` | 2 | |
 | | `barcode__print__history` | 16 | label print events |
 | | `barcode__loose` | 7 | loose units |
-| **gate-core** (8) | `gate-core__sales-dispatch__documents` | 1,130 | gap-busted from a 200-cap |
-| | `gate-core__arrivals` | 117 | weighbridge log (prefix `arr`; cross-company) |
+| **gate-core** (8) | `gate-core__sales-dispatch__documents` | 1,236 | gap-busted from a 200-cap |
+| | `gate-core__arrivals` | 139 | weighbridge log (prefix `arr`; cross-company) |
 | | `gate-core__bst-outs__sap-transfers` | 50 | intercompany transfers |
-| | `gate-core__empty-vehicle-outs__eligible-entries` | 43 | |
-| | `gate-core__empty-vehicle-ins` | 36 | |
-| | `gate-core__sales-dispatch` | 38 | |
+| | `gate-core__empty-vehicle-outs__eligible-entries` | 48 | |
+| | `gate-core__empty-vehicle-ins` | 41 | |
+| | `gate-core__sales-dispatch` | 43 | |
 | | `gate-core__empty-vehicle-ins__reasons` | 5 | enum |
 | | `gate-core__empty-vehicle-outs` | 1 | |
-| **vehicle-management** (3) | `vehicle-management__vehicles` | 340 | (prefix `veh`) |
-| | `vehicle-management__transporters` | 88 | (prefix `trn`) |
+| **vehicle-management** (3) | `vehicle-management__vehicles` | 346 | (prefix `veh`) |
+| | `vehicle-management__transporters` | 89 | (prefix `trn`) |
 | | `vehicle-management__vehicle-types` | 7 | enum (prefix `vty`) |
-| **driver-management** (1) | `driver-management__drivers` | 296 | (prefix `drv`) |
-| **person-gatein** (6) | `person-gatein__entries` | 206 | gap-captured domain |
-| | `person-gatein__visitors` | 149 | (prefix `vis`) |
+| **driver-management** (1) | `driver-management__drivers` | 303 | (prefix `drv`) |
+| **person-gatein** (6) | `person-gatein__entries` | 211 | gap-captured domain |
+| | `person-gatein__visitors` | 154 | (prefix `vis`) |
 | | `person-gatein__labours` | 3 | |
 | | `person-gatein__contractors` | 2 | |
 | | `person-gatein__person-types` | 2 | enum (prefix `ptype`) |
@@ -86,14 +87,14 @@ counts from `render-proof.json`. **49,371 record notes total.** `barcode__boxes`
 | **quality-control** (3) | `quality-control__sap-items` | 193 | gap-captured via search proxy |
 | | `quality-control__arrival-slips` | 8 | inbound slips (stuck `NOT_STARTED`) |
 | | `quality-control__inspections` | 8 | |
-| **notifications** (2) | `notifications` | 135 | |
+| **notifications** (2) | `notifications` | 144 | |
 | | `notifications__preferences` | 39 | |
-| **docking-admin** (2) | `docking-admin__partial-scan-requests` | 21 | |
+| **docking-admin** (2) | `docking-admin__partial-scan-requests` | 26 | |
 | | `docking-admin__scan-skip-requests` | 12 | |
-| **grpo** (2) | `grpo__service__pending` | 6 | |
+| **grpo** (2) | `grpo__service__pending` | 8 | |
 | | `grpo__all-entries` | 5 | |
 | **company** (1) | `company__companies` | 3 | gap-captured (prefix `comp`) |
-| **dispatch** (1) | `dispatch__bilty-grpo__pending` | 6 | |
+| **dispatch** (1) | `dispatch__bilty-grpo__pending` | 8 | |
 | **daily-needs-gatein** (1) | `…__gate-entries__daily-need__categories` | 1 | enum |
 
 ---
@@ -105,19 +106,19 @@ slug) so cross-folder `[[prefix-key]]` wikilinks resolve cleanly. These are the 
 
 | Raw slug | Prefix | Title | Key field | Count |
 |---|---|---|---|---:|
-| `vehicle-management__vehicles` | `veh` | Vehicle | `id` | 340 |
+| `vehicle-management__vehicles` | `veh` | Vehicle | `id` | 346 |
 | `vehicle-management__vehicle-types` | `vty` | Vehicle Type | `id` | 7 |
-| `vehicle-management__transporters` | `trn` | Transporter | `id` | 88 |
-| `driver-management__drivers` | `drv` | Driver | `id` | 296 |
-| `gate-core__arrivals` | `arr` | Gate Arrival | `id` | 117 |
-| `barcode__pallets` | `pal` | Pallet | `id` | 583 |
-| `barcode__boxes` | `box` | Barcode Box | `id` | 27,206 |
+| `vehicle-management__transporters` | `trn` | Transporter | `id` | 89 |
+| `driver-management__drivers` | `drv` | Driver | `id` | 303 |
+| `gate-core__arrivals` | `arr` | Gate Arrival | `id` | 139 |
+| `barcode__pallets` | `pal` | Pallet | `id` | 592 |
+| `barcode__boxes` | `box` | Barcode Box | `id` | 8,500 |
 | `barcode__items__oitm` | `oitm` | SAP Item (OITM) | `item_code` | 420 |
 | `po__vendors` | `ven` | Vendor | `vendor_code` | 212 |
 | `po__warehouses` | `wh` | Warehouse | `warehouse_code` | 31 |
 | `company__companies` | `comp` | Company | `id` | 3 |
 | `person-gatein__person-types` | `ptype` | Person Type | `id` | 2 |
-| `person-gatein__visitors` | `vis` | Visitor | `id` | 149 |
+| `person-gatein__visitors` | `vis` | Visitor | `id` | 154 |
 | `person-gatein__gates` | `pgate` | Gate | `id` | 1 |
 
 Every other (non-target) entity uses its **full slug as the note prefix** (e.g.
@@ -147,7 +148,7 @@ visitor                                     → vis     (Visitor)
 gate, gate_in, gate_out                     → pgate   (Gate)
 ```
 
-This is what turns 49,371 isolated records into a navigable graph: a box links to its `oitm` item and
+This is what turns 16,938 isolated records into a navigable graph: a box links to its `oitm` item and
 `pal` pallet; an arrival links to its `drv` driver and `veh` vehicle; and so on.
 
 ---
@@ -163,7 +164,7 @@ This is the seam that connects the factory to the rest of the data bank.
 - **If the code matches `^FG\d+$`** (a finished good), the note gets a tag `bridge/<code>` **and** the
   mapping `code → {slug}/{noteid}` is recorded in **`bridge_links`**.
 - `bridge_links` is written to **`vault/_bridge.json`** as
-  `{ "FG0000004": ["barcode__boxes/box-112501", …], … }` — **421 distinct FG codes, 29,392 references.**
+  `{ "FG0000004": ["barcode__boxes/box-112501", …], … }` — **421 distinct FG codes, 10,695 references.**
 - **FG-only by design.** Only `^FG\d+$` codes enter `_bridge.json`; **PM** (packaging) and **RM**
   (raw-material) codes do not — though they still get an `[[oitm-…]]` link if the oitm registry has them.
 - **Downstream:** the data-bank's `factory_pillar.py` reads `_bridge.json` and appends a `## Factory
@@ -241,7 +242,8 @@ Honest about the limits:
 ## 8. Cross-repo — how factory bridges to the data bank
 
 This repo is the **4th pillar** of the JIVO data bank. The data-bank repo's `factory_pillar.py` (in
-`/opt/ecom-intel/bin/`, run inside its daily rebuild ~13:30 IST) does the fusion:
+`/root/jivo-data-bank/bin/`, run by the event-driven data-bank chain after the noon upstream jobs) does
+the fusion:
 
 1. **`copytree(vault/ → combined-vault/factory/)`** — **verbatim**, an exact byte match (the bridge
    lives on product nodes, not factory notes), with a per-file sha256 zero-loss proof merged into the
@@ -254,10 +256,7 @@ This repo is the **4th pillar** of the JIVO data bank. The data-bank repo's `fac
    nonzero unless `prefix_ok AND zero_loss_ok`).
 
 So the data bank gives each product **three lenses** — competitor-price (`ecom/`), JIVO-volume
-(`jivo/`), and **factory** (this repo) — joined by the SAP code `FG####`. (Note: the data-bank's own
-docs may still quote an earlier 2026-06-27 factory snapshot — e.g. 47,549 notes / 200 SAP items / 71
-product lenses — which is stale relative to this repo's current 49,371 / 420 / 421; the difference is
-just refresh timing, since `capture_gaps.py` later busted the oitm cap from ~200 to 420.)
+(`jivo/`), and **factory** (this repo) — joined by the SAP code `FG####`.
 
 ---
 

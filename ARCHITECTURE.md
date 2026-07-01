@@ -28,7 +28,7 @@ the mental model; read **[`VAULT-GUIDE.md`](VAULT-GUIDE.md)** next for how to re
 | **`bin/capture.py`** | Lossless capture of the 152 verified endpoints (`research/get200.txt`). Probes DRF pagination first; walks every page (`paginated_list`) or plain-GETs to `list`/`object`. Writes `raw/<slug>.json` as `{endpoint,kind,count,data}` + `raw/_manifest.json`. 8 worker threads. Deterministic. | `bin/` |
 | **`bin/capture_gaps.py`** | Cap-buster + missed-domain backfill — runs **after** capture.py, overwrites/adds raw files in the same shape. Adds the `person-gatein` domain + `company/companies`; busts the 200-cap on sales-dispatch documents (→1130) and the `oitm` item master (→~420); re-pulls QC/production SAP-items via search proxies (→193 each). **Does NOT update `_manifest.json`.** | `bin/` |
 | **`bin/render.py`** | The authority on what the vault *is*. Deterministic full-replace render: scans `raw/*.json` directly, classifies by `kind`, emits one note per record, the `_HOME.md` MOC, per-entity `_moc-*.md` hubs, `render-proof.json`, and the SAP bridge `vault/_bridge.json`. | `bin/` |
-| **`vault/`** | The rendered Obsidian source vault — **49,461** `.md` (49,371 notes + 89 MOCs + `_HOME.md`) + `_bridge.json`. Becomes `jivo-data-bank/factory/` on fusion. | **never** (regenerated) |
+| **`vault/`** | The rendered Obsidian source vault — **16,995** `.md` (16,938 notes + 56 MOCs + `_HOME.md`) + `_bridge.json`. Becomes `jivo-data-bank/factory/` on fusion. | **never** (regenerated) |
 | **Fusion — `factory_pillar.py`** | Lives in the **data-bank** repo (`/opt/ecom-intel/bin/factory_pillar.py`), not here. Copies `vault/` verbatim into the combined vault and appends a `## Factory lens` to product nodes by `FG####`. | data-bank repo |
 
 The CLI, `raw/`, and `vault/` are this repo's responsibility; the fusion belongs to the data bank and
@@ -56,8 +56,8 @@ a deterministic **full REPLACE** that runs at **05:30 IST**:
         ▼
    git commit (history = time machine)   ── pushed every 3h ──►  PUBLIC repo
 
-   ─────────────────────  separate repo, ~13:30 IST  ─────────────────────
-   data-bank daily_rebuild.sh → factory_pillar.py: copy vault/ verbatim into jivo-data-bank/factory/
+   ───────────── separate repo, event-driven after noon upstream chain ─────────────
+   data-bank run_daily.sh → daily_rebuild.sh → factory_pillar.py: copy vault/ verbatim into jivo-data-bank/factory/
    + append "## Factory lens" to product nodes by FG#### + fail-closed verify → commit (owner pushes)
 ```
 
@@ -67,8 +67,9 @@ a deterministic **full REPLACE** that runs at **05:30 IST**:
 correct-yesterday than wrong-today").
 
 > **`factory_daily.sh` is a self-contained alternative** (refresh → run the data-bank
-> `daily_rebuild.sh` → optional push) that is **NOT used by cron** — the data-bank's own cron does the
-> fuse + commit + push. Auto-push there is OFF by default (`FACTORY_AUTOPUSH=1` to enable).
+> `daily_rebuild.sh` → optional push) that is **NOT used by cron** — the data-bank's event-driven hook
+> does the fuse + commit + push after the noon upstream chain. Auto-push there is OFF by default
+> (`FACTORY_AUTOPUSH=1` to enable).
 
 ---
 
@@ -108,10 +109,9 @@ Self-sustaining, no password at rest.
 
 ## Push & sync
 
-- **`/root/bin/push_all_jivo.sh`** (cron **`45 */3`**, every 3 hours) does `git add -A` and pushes this
-  repo's completed work. The repo is **PUBLIC** (`github.com/daman8271/jivo-factory-intel`).
-- Because it is a public proprietary-data repo, the data-exfiltration classifier **blocks Claude from
-  pushing it** — the owner pushes (or `push_all_jivo.sh` does on the cron).
+- **`/root/bin/push_all_repos.sh`** (cron **`*/15 * * * *`**, every 15 minutes, with
+  `COMMIT_VAULTS=1`) commits completed crawler/scraper output and pushes the owner's Jivo repos. The
+  repo is **PUBLIC** (`github.com/daman8271/jivo-factory-intel`).
 - **Fusion path:** the data-bank's `factory_pillar.py` is the only consumer of `vault/` + `_bridge.json`.
   It `copytree`s `vault/` into `/opt/ecom-intel/combined-vault/factory` (verbatim, sha256 zero-loss
   proof), appends the `## Factory lens` to product nodes by `FG####`, then the build is rsynced into
@@ -141,7 +141,7 @@ Self-sustaining, no password at rest.
 jivo-factory-intel/
 ├── README.md ARCHITECTURE.md VAULT-GUIDE.md DATA-MODEL.md   repo-only docs
 ├── PLAN.md                  the phased plan that built this (Goal #14)
-├── REFRESH-RUNBOOK.md       daily auto-refresh runbook (cron · auth · re-seed)  [fuse time stale: says 06:00]
+├── REFRESH-RUNBOOK.md       daily auto-refresh runbook (cron · auth · re-seed)
 ├── vault-schema.md          ⚠️ ASPIRATIONAL design — NOT what render.py builds
 ├── spec.yaml                printing-press CLI spec (19 resources · 152 GETs · Company-Code header)
 ├── render-proof.json        render proof: total_notes · entity_types · empty_modules · sap_bridge_codes · per_entity
@@ -155,10 +155,10 @@ jivo-factory-intel/
 │   ├── factory_daily.sh        self-contained alt (refresh → data-bank rebuild → push) — NOT cron-wired
 │   └── reseed.sh               one-time password re-seed (owner runs with `!`; password never stored)
 │
-├── raw/                     lossless raw capture — 152 <slug>.json + _manifest.json   [54 MB]   [source of render]
-├── vault/                   the rendered Obsidian vault                                [204 MB]  [never edit]
+├── raw/                     lossless raw capture — 152 <slug>.json + _manifest.json   [35 MB]   [source of render]
+├── vault/                   the rendered Obsidian vault                                [74 MB]  [never edit]
 │   ├── _HOME.md                the MOC entry point
-│   ├── _bridge.json            FG#### → [<slug>/<noteid>, …]  (421 codes / 29,392 refs)
+│   ├── _bridge.json            FG#### → [<slug>/<noteid>, …]  (421 codes / 10,695 refs)
 │   └── <domain>__<entity>/     46 flat entity folders, each with notes + _moc-<slug>.md hub(s)
 ├── snapshots/               a frozen earlier raw capture (2026-06-30 00:27) — NOT refreshed by cron  [21 MB]
 ├── app-model/               the 13-section whole-app study (README · 00-OVERVIEW · _route-map · sections/01–13)
