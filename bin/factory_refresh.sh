@@ -45,3 +45,8 @@ python3 "$ROOT/bin/render.py"       >>"$LOG" 2>&1 || { alert "render.py FAILED";
 N=$(find "$ROOT/vault" -name '*.md' | wc -l | tr -d ' ')
 R=$(python3 -c "import json;m=json.load(open('$ROOT/raw/_manifest.json'));print(sum(v.get('count',0) for v in m.values() if v.get('kind') in ('list','paginated_list')))" 2>/dev/null || echo '?')
 log "=== factory_refresh done: vault=$N notes, ~$R captured records ==="
+
+# --- eager today/ hook (instant-per-source rule): publish factory's slice into
+# the data-bank today/ the moment its vault is refreshed. Self-gates on readiness
+# + no-ops if unchanged; never blocks or fails this refresh. ---
+/opt/ecom-intel/bin/advance_today_section.sh factory >> /opt/ecom-intel/bin/build_today.log 2>&1 || true
