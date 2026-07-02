@@ -1,16 +1,17 @@
 {
   "schema": "jivo-today/manifest@1",
-  "date": "2026-07-01",
-  "generated_at": "2026-07-01 21:24:03 IST",
-  "mode": "live",
+  "date": "2026-07-02",
+  "generated_at": "2026-07-02 05:32:13 IST",
+  "mode": "eager",
   "dry_run": false,
-  "total_files": 3219,
+  "total_files": 42493,
   "sources": {
     "factory": {
       "repo": "/root/jivo-factory-intel",
-      "base_commit": "1f4e6defe0391f66ec116faae1969d1778c9df15",
-      "end_commit": "b46606cd2d2e29f988f362cdc1e810c4cbb40519",
-      "files": 3219
+      "base_commit": "e96de5536a8433f7b1c6b779d64069573b92441c",
+      "end_commit": "a140830b9c97fc971acc9907a7fcdf8a71a693e3",
+      "files": 42493,
+      "date": "2026-07-02"
     }
   }
 }
