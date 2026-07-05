@@ -7,17 +7,17 @@
   },
   "/accounts/users/": {
     "kind": "list",
-    "count": 65,
+    "count": 66,
     "file": "accounts__users.json",
     "pages": 1,
     "hard_capped": false
   },
   "/barcode/boxes/": {
     "kind": "paginated_list",
-    "count": 31474,
+    "count": 31668,
     "file": "barcode__boxes.json",
-    "pages": 315,
-    "reported_count": 31474,
+    "pages": 317,
+    "reported_count": 31668,
     "truncated": false
   },
   "/barcode/dispatch/reports/": {
@@ -36,7 +36,7 @@
   },
   "/barcode/dispatch/reports/pallets/": {
     "kind": "list",
-    "count": 663,
+    "count": 665,
     "file": "barcode__dispatch__reports__pallets.json",
     "pages": 1,
     "hard_capped": false
@@ -101,10 +101,10 @@
   },
   "/barcode/pallets/": {
     "kind": "paginated_list",
-    "count": 663,
+    "count": 665,
     "file": "barcode__pallets.json",
     "pages": 7,
-    "reported_count": 663,
+    "reported_count": 665,
     "truncated": false
   },
   "/barcode/print/history/": {
@@ -117,10 +117,10 @@
   },
   "/barcode/scan/history/": {
     "kind": "paginated_list",
-    "count": 24229,
+    "count": 25188,
     "file": "barcode__scan__history.json",
-    "pages": 243,
-    "reported_count": 24229,
+    "pages": 252,
+    "reported_count": 25188,
     "truncated": false
   },
   "/daily-needs-gatein/gate-entries/daily-need/categories/": {
@@ -208,7 +208,7 @@
   },
   "/docking-admin/partial-scan-requests/": {
     "kind": "list",
-    "count": 38,
+    "count": 41,
     "file": "docking-admin__partial-scan-requests.json",
     "pages": 1,
     "hard_capped": false
@@ -222,24 +222,24 @@
   },
   "/driver-management/drivers/": {
     "kind": "list",
-    "count": 328,
+    "count": 336,
     "file": "driver-management__drivers.json",
     "pages": 1,
     "hard_capped": false
   },
   "/driver-management/drivers/names/": {
     "kind": "list",
-    "count": 328,
+    "count": 336,
     "file": "driver-management__drivers__names.json",
     "pages": 1,
     "hard_capped": false
   },
   "/gate-core/arrivals/": {
     "kind": "list",
-    "count": 194,
+    "count": 200,
     "file": "gate-core__arrivals.json",
     "pages": 1,
-    "hard_capped": false
+    "hard_capped": true
   },
   "/gate-core/bst-ins/": {
     "kind": "list",
@@ -285,7 +285,7 @@
   },
   "/gate-core/empty-vehicle-ins/": {
     "kind": "list",
-    "count": 57,
+    "count": 60,
     "file": "gate-core__empty-vehicle-ins.json",
     "pages": 1,
     "hard_capped": false
@@ -313,7 +313,7 @@
   },
   "/gate-core/empty-vehicle-outs/eligible-entries/": {
     "kind": "list",
-    "count": 62,
+    "count": 65,
     "file": "gate-core__empty-vehicle-outs__eligible-entries.json",
     "pages": 1,
     "hard_capped": false
@@ -348,7 +348,7 @@
   },
   "/gate-core/sales-dispatch/": {
     "kind": "list",
-    "count": 56,
+    "count": 59,
     "file": "gate-core__sales-dispatch.json",
     "pages": 1,
     "hard_capped": false
@@ -577,10 +577,10 @@
   },
   "/notifications/": {
     "kind": "paginated_list",
-    "count": 172,
+    "count": 177,
     "file": "notifications.json",
     "pages": 2,
-    "reported_count": 172,
+    "reported_count": 177,
     "truncated": false
   },
   "/notifications/preferences/": {
@@ -916,14 +916,14 @@
   },
   "/vehicle-management/transporters/": {
     "kind": "list",
-    "count": 91,
+    "count": 93,
     "file": "vehicle-management__transporters.json",
     "pages": 1,
     "hard_capped": false
   },
   "/vehicle-management/transporters/names/": {
     "kind": "list",
-    "count": 91,
+    "count": 93,
     "file": "vehicle-management__transporters__names.json",
     "pages": 1,
     "hard_capped": false
@@ -937,14 +937,14 @@
   },
   "/vehicle-management/vehicles/": {
     "kind": "list",
-    "count": 371,
+    "count": 380,
     "file": "vehicle-management__vehicles.json",
     "pages": 1,
     "hard_capped": false
   },
   "/vehicle-management/vehicles/names/": {
     "kind": "list",
-    "count": 371,
+    "count": 380,
     "file": "vehicle-management__vehicles__names.json",
     "pages": 1,
     "hard_capped": false
