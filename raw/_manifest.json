@@ -577,10 +577,10 @@
   },
   "/notifications/": {
     "kind": "paginated_list",
-    "count": 177,
+    "count": 179,
     "file": "notifications.json",
     "pages": 2,
-    "reported_count": 177,
+    "reported_count": 179,
     "truncated": false
   },
   "/notifications/preferences/": {

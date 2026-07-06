@@ -1,1 +1,1 @@
-{"endpoint": "/sap/plan-dashboard/procurement/", "kind": "object", "count": 1, "data": {"data": [], "meta": {"total_components": 0, "components_with_shortfall": 0, "fetched_at": "2026-07-05T00:00:19.938656+00:00"}}}
+{"endpoint": "/sap/plan-dashboard/procurement/", "kind": "object", "count": 1, "data": {"data": [], "meta": {"total_components": 0, "components_with_shortfall": 0, "fetched_at": "2026-07-06T00:00:18.321070+00:00"}}}

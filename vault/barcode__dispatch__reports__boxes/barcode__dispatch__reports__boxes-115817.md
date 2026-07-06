@@ -1,7 +1,7 @@
 ---
 type: factory-barcode__dispatch__reports__boxes
-id: 115834
-title: "Boxes 115834"
+id: 115817
+title: "Boxes 115817"
 entity: Boxes
 source_endpoint: /barcode/dispatch/reports/boxes/
 company: JIVO_MART
@@ -11,13 +11,13 @@ tags:
   - company/JIVO_MART
   - bridge/FG0000142
 ---
-# Boxes 115834
+# Boxes 115817
 
 > Boxes from `/barcode/dispatch/reports/boxes/` (Jivo Mart / JIVO_MART).
 
 ## Fields
-- **box_id:** 115834
-- **box_barcode:** BOX-20260622-XX-2747
+- **box_id:** 115817
+- **box_barcode:** BOX-20260622-XX-2730
 - **material_code:** FG0000142
 - **quantity:** 16.00
 - **uom:** PCS
@@ -29,5 +29,5 @@ tags:
 - **removed_from_pallet:** False
 
 ## Related
-- box_id -> [[box-115834]]
+- box_id -> [[box-115817]]
 - item -> [[oitm-FG0000142]]
