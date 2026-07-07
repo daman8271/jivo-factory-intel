@@ -1,15 +1,21 @@
 ---
 type: moc
-title: Driver (336)
+title: Driver (342)
 tags:
   - moc
   - source/factory
 ---
 
-# Driver — 336 records
+# Driver — 342 records
 
 From `/driver-management/drivers/`. Up: [[_HOME]]
 
+- [[drv-352]] — Sabid 9588035573
+- [[drv-351]] — Bablu ram 9839240808
+- [[drv-350]] — Junaid 9785170085
+- [[drv-349]] — Ramnivas 8112287204
+- [[drv-348]] — Nempal 8700790850
+- [[drv-347]] — Anwar 9546899477
 - [[drv-346]] — Ravinder 8447544825
 - [[drv-345]] — Jilu 9896615317
 - [[drv-344]] — Sahil 9034103704

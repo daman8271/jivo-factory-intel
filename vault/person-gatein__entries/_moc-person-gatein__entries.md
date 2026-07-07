@@ -1,15 +1,19 @@
 ---
 type: moc
-title: Entries (228)
+title: Entries (232)
 tags:
   - moc
   - source/factory
 ---
 
-# Entries — 228 records
+# Entries — 232 records
 
 From `/person-gatein/entries/`. Up: [[_HOME]]
 
+- [[person-gatein__entries-238]] — Entries 238
+- [[person-gatein__entries-237]] — Entries 237
+- [[person-gatein__entries-236]] — Entries 236
+- [[person-gatein__entries-235]] — Entries 235
 - [[person-gatein__entries-234]] — Entries 234
 - [[person-gatein__entries-233]] — Entries 233
 - [[person-gatein__entries-232]] — Entries 232

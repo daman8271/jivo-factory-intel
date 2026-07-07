@@ -14,10 +14,10 @@
   },
   "/barcode/boxes/": {
     "kind": "paginated_list",
-    "count": 31668,
+    "count": 33315,
     "file": "barcode__boxes.json",
-    "pages": 317,
-    "reported_count": 31668,
+    "pages": 334,
+    "reported_count": 33315,
     "truncated": false
   },
   "/barcode/dispatch/reports/": {
@@ -36,7 +36,7 @@
   },
   "/barcode/dispatch/reports/pallets/": {
     "kind": "list",
-    "count": 665,
+    "count": 707,
     "file": "barcode__dispatch__reports__pallets.json",
     "pages": 1,
     "hard_capped": false
@@ -101,10 +101,10 @@
   },
   "/barcode/pallets/": {
     "kind": "paginated_list",
-    "count": 665,
+    "count": 707,
     "file": "barcode__pallets.json",
-    "pages": 7,
-    "reported_count": 665,
+    "pages": 8,
+    "reported_count": 707,
     "truncated": false
   },
   "/barcode/print/history/": {
@@ -222,14 +222,14 @@
   },
   "/driver-management/drivers/": {
     "kind": "list",
-    "count": 336,
+    "count": 342,
     "file": "driver-management__drivers.json",
     "pages": 1,
     "hard_capped": false
   },
   "/driver-management/drivers/names/": {
     "kind": "list",
-    "count": 336,
+    "count": 342,
     "file": "driver-management__drivers__names.json",
     "pages": 1,
     "hard_capped": false
@@ -577,10 +577,10 @@
   },
   "/notifications/": {
     "kind": "paginated_list",
-    "count": 179,
+    "count": 187,
     "file": "notifications.json",
     "pages": 2,
-    "reported_count": 179,
+    "reported_count": 187,
     "truncated": false
   },
   "/notifications/preferences/": {
@@ -937,14 +937,14 @@
   },
   "/vehicle-management/vehicles/": {
     "kind": "list",
-    "count": 380,
+    "count": 385,
     "file": "vehicle-management__vehicles.json",
     "pages": 1,
     "hard_capped": false
   },
   "/vehicle-management/vehicles/names/": {
     "kind": "list",
-    "count": 380,
+    "count": 385,
     "file": "vehicle-management__vehicles__names.json",
     "pages": 1,
     "hard_capped": false
