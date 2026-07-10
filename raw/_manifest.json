@@ -7,17 +7,17 @@
   },
   "/accounts/users/": {
     "kind": "list",
-    "count": 66,
+    "count": 68,
     "file": "accounts__users.json",
     "pages": 1,
     "hard_capped": false
   },
   "/barcode/boxes/": {
     "kind": "paginated_list",
-    "count": 36542,
+    "count": 39041,
     "file": "barcode__boxes.json",
-    "pages": 366,
-    "reported_count": 36542,
+    "pages": 391,
+    "reported_count": 39041,
     "truncated": false
   },
   "/barcode/dispatch/reports/": {
@@ -36,7 +36,7 @@
   },
   "/barcode/dispatch/reports/pallets/": {
     "kind": "list",
-    "count": 782,
+    "count": 840,
     "file": "barcode__dispatch__reports__pallets.json",
     "pages": 1,
     "hard_capped": false
@@ -101,10 +101,10 @@
   },
   "/barcode/pallets/": {
     "kind": "paginated_list",
-    "count": 782,
+    "count": 840,
     "file": "barcode__pallets.json",
-    "pages": 8,
-    "reported_count": 782,
+    "pages": 9,
+    "reported_count": 840,
     "truncated": false
   },
   "/barcode/print/history/": {
@@ -117,10 +117,10 @@
   },
   "/barcode/scan/history/": {
     "kind": "paginated_list",
-    "count": 27719,
+    "count": 29647,
     "file": "barcode__scan__history.json",
-    "pages": 278,
-    "reported_count": 27719,
+    "pages": 297,
+    "reported_count": 29647,
     "truncated": false
   },
   "/daily-needs-gatein/gate-entries/daily-need/categories/": {
@@ -187,7 +187,7 @@
   },
   "/dispatch/bilty-grpo/pending/": {
     "kind": "list",
-    "count": 12,
+    "count": 9,
     "file": "dispatch__bilty-grpo__pending.json",
     "pages": 1,
     "hard_capped": false
@@ -208,7 +208,7 @@
   },
   "/docking-admin/partial-scan-requests/": {
     "kind": "list",
-    "count": 46,
+    "count": 48,
     "file": "docking-admin__partial-scan-requests.json",
     "pages": 1,
     "hard_capped": false
@@ -222,14 +222,14 @@
   },
   "/driver-management/drivers/": {
     "kind": "list",
-    "count": 354,
+    "count": 364,
     "file": "driver-management__drivers.json",
     "pages": 1,
     "hard_capped": false
   },
   "/driver-management/drivers/names/": {
     "kind": "list",
-    "count": 354,
+    "count": 364,
     "file": "driver-management__drivers__names.json",
     "pages": 1,
     "hard_capped": false
@@ -285,7 +285,7 @@
   },
   "/gate-core/empty-vehicle-ins/": {
     "kind": "list",
-    "count": 67,
+    "count": 71,
     "file": "gate-core__empty-vehicle-ins.json",
     "pages": 1,
     "hard_capped": false
@@ -306,14 +306,14 @@
   },
   "/gate-core/empty-vehicle-outs/": {
     "kind": "list",
-    "count": 4,
+    "count": 5,
     "file": "gate-core__empty-vehicle-outs.json",
     "pages": 1,
     "hard_capped": false
   },
   "/gate-core/empty-vehicle-outs/eligible-entries/": {
     "kind": "list",
-    "count": 72,
+    "count": 75,
     "file": "gate-core__empty-vehicle-outs__eligible-entries.json",
     "pages": 1,
     "hard_capped": false
@@ -348,7 +348,7 @@
   },
   "/gate-core/sales-dispatch/": {
     "kind": "list",
-    "count": 65,
+    "count": 69,
     "file": "gate-core__sales-dispatch.json",
     "pages": 1,
     "hard_capped": false
@@ -368,7 +368,7 @@
   },
   "/gate-core/sales-dispatch/pending-bookings/": {
     "kind": "list",
-    "count": 1,
+    "count": 0,
     "file": "gate-core__sales-dispatch__pending-bookings.json",
     "pages": 1,
     "hard_capped": false
@@ -415,7 +415,7 @@
   },
   "/grpo/service/pending/": {
     "kind": "list",
-    "count": 12,
+    "count": 9,
     "file": "grpo__service__pending.json",
     "pages": 1,
     "hard_capped": false
@@ -577,15 +577,15 @@
   },
   "/notifications/": {
     "kind": "paginated_list",
-    "count": 206,
+    "count": 210,
     "file": "notifications.json",
     "pages": 3,
-    "reported_count": 206,
+    "reported_count": 210,
     "truncated": false
   },
   "/notifications/preferences/": {
     "kind": "list",
-    "count": 42,
+    "count": 53,
     "file": "notifications__preferences.json",
     "pages": 1,
     "hard_capped": false
@@ -937,14 +937,14 @@
   },
   "/vehicle-management/vehicles/": {
     "kind": "list",
-    "count": 396,
+    "count": 405,
     "file": "vehicle-management__vehicles.json",
     "pages": 1,
     "hard_capped": false
   },
   "/vehicle-management/vehicles/names/": {
     "kind": "list",
-    "count": 396,
+    "count": 405,
     "file": "vehicle-management__vehicles__names.json",
     "pages": 1,
     "hard_capped": false

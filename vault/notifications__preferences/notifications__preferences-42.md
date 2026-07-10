@@ -1,7 +1,7 @@
 ---
 type: factory-notifications__preferences
 id: 42
-title: "General Announcement"
+title: "Returnable Gate Pass Awaiting Approval"
 entity: Preferences
 source_endpoint: /notifications/preferences/
 company: JIVO_MART
@@ -10,13 +10,13 @@ tags:
   - source/factory
   - company/JIVO_MART
 ---
-# General Announcement
+# Returnable Gate Pass Awaiting Approval
 
 > Preferences from `/notifications/preferences/` (Jivo Mart / JIVO_MART).
 
 ## Fields
 - **id:** 42
-- **code:** GENERAL_ANNOUNCEMENT
-- **name:** General Announcement
-- **description:** General Announcement
+- **code:** RETURNABLE_SUBMITTED
+- **name:** Returnable Gate Pass Awaiting Approval
+- **description:** Returnable Gate Pass Awaiting Approval
 - **is_enabled:** True
