@@ -1,5 +1,5 @@
 {
-  "total_notes": 90863,
+  "total_notes": 90783,
   "entity_types": 46,
   "empty_modules": 59,
   "sap_bridge_codes": 422,
@@ -30,7 +30,7 @@
     "gate-core__empty-vehicle-outs": 5,
     "gate-core__empty-vehicle-outs__eligible-entries": 85,
     "gate-core__sales-dispatch": 78,
-    "gate-core__sales-dispatch__documents": 1427,
+    "gate-core__sales-dispatch__documents": 1347,
     "grpo__all-entries": 5,
     "grpo__service__pending": 7,
     "notifications": 211,
